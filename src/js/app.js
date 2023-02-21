@@ -10,6 +10,15 @@ mobBtn.addEventListener("click", () => {
   headerMobList.classList.toggle("header__mob-list--active");
 });
 
+const mobItems = document.querySelectorAll(".header__mob-item");
+mobItems.forEach((item) => {
+  item.addEventListener("click", () => {
+    mobBtn.classList.remove("header__mob--active");
+    mobBtnText.classList.remove("header__mob-text--active");
+    headerMobList.classList.remove("header__mob-list--active");
+  });
+});
+
 const animItems = document.querySelectorAll(".top__info-animbox");
 
 if (window.innerWidth <= 965) {
@@ -135,6 +144,37 @@ const btnNextPartners = document.querySelector(".clients__mob-btn"),
 btnNextPartners.addEventListener("click", () => {
   itemsPartners.forEach((item) => {
     item.classList.remove("clients__item-next");
-    btnNextPartners.classList.add("clients__mob-btn--hidden")
+    btnNextPartners.classList.add("clients__mob-btn--hidden");
   });
 });
+
+const emailInput = document.querySelector(".news__input");
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const newsEmpty = document.querySelector(".news__form-error-empty");
+const newsInvalid = document.querySelector(".news__form-error-invalid");
+
+emailInput.addEventListener("input", function () {
+  setTimeout(() => {
+    if (this.value === "") {
+      emailInput.classList.add("news__input-empty");
+      emailInput.classList.remove("news__input-invalid");
+
+      newsEmpty.classList.add("news__form-error-empty--active");
+      newsInvalid.classList.remove("news__form-error-invalid--active");
+    } else if (!emailRegex.test(this.value)) {
+      emailInput.classList.add("news__input-invalid");
+      emailInput.classList.remove("news__input-empty");
+
+      newsInvalid.classList.add("news__form-error-invalid--active");
+      newsEmpty.classList.remove("news__form-error-empty--active");
+    } else {
+      emailInput.classList.remove("news__input-invalid");
+      emailInput.classList.remove("news__input-empty");
+
+      newsInvalid.classList.remove("news__form-error-invalid--active");
+      newsEmpty.classList.remove("news__form-error-empty--active");
+    }
+  }, 1000);
+});
+

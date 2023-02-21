@@ -26,13 +26,15 @@
     }
     &-item {
       a {
+        display: inline-block;
         @extend %rob-700;
         font-size: 18px;
         line-height: 21px;
         color: #fff;
+        padding: 5px 0;
       }
       & + & {
-        margin-top: 28px;
+        margin-top: 18px;
       }
     }
     &-text {
@@ -176,11 +178,17 @@
       background: #007bd5;
       box-shadow: 0px 3px 16px rgba(69, 133, 255, 0.43);
     }
+    &:active {
+      border: 2px solid #022c50;
+      background-color: #022c50;
+      box-shadow: 0px 3px 16px transparent;
+    }
   }
 }
 .top {
   position: relative;
   padding: 78px 0 15px;
+  min-height: calc(100vh - 64px);
   &__wrapper {
     min-height: 790px;
   }
@@ -248,6 +256,7 @@
       transform: translateY(-50%);
       right: 13px;
       img {
+        cursor: pointer;
         padding: 5px;
       }
     }
@@ -273,7 +282,7 @@
     border: none;
     &:hover {
       background: #52575b;
-      box-shadow: 0px 3px 16px rgba(69, 133, 255, 0.43);
+      box-shadow: 0px 3px 16px rgba(#656769, 0.43);
     }
     &:active {
       background: #1a1c26;
@@ -449,6 +458,9 @@
       line-height: 18px;
       color: #35383c;
     }
+    &-image {
+      min-height: 61px;
+    }
   }
   &__pagination {
     display: flex;
@@ -468,6 +480,9 @@
 }
 .rates {
   padding: 50px 0;
+  &__slider {
+    padding: 0 15px;
+  }
   &__item {
     background: #f9f9f9;
     border-radius: 16px;
@@ -494,6 +509,15 @@
       font-size: 16px;
       line-height: 18px;
       color: #fff;
+      transition: all 0.2s;
+      &:hover {
+        background: #007bd5;
+        box-shadow: 0px 3px 16px rgba(69, 133, 255, 0.43);
+      }
+      &:active {
+        background-color: #022c50;
+        box-shadow: 0px 3px 16px transparent;
+      }
     }
   }
   &__paragraph {
@@ -572,6 +596,13 @@
     align-items: center;
     min-height: 132px;
     padding: 10px;
+    transition: background-color 0.2s;
+    &:hover {
+      background-color: #ebebeb;
+    }
+    &:active {
+      background-color: #cecece;
+    }
   }
   &__mob {
     &-btn {
@@ -589,7 +620,32 @@
     color: #35383b;
     margin-bottom: 32px;
   }
+  &__form {
+    display: flex;
+    align-items: center;
+    &-error {
+      @extend %rob-400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #ee505a;
+      margin-top: 6px;
+      &-empty {
+        display: none;
+        &--active {
+          display: inline-block;
+        }
+      }
+      &-invalid {
+        display: none;
+        &--active {
+          display: inline-block;
+        }
+      }
+    }
+  }
   &__input {
+    max-width: 100% !important;
+    width: 100% !important;
     background: rgba(255, 255, 255, 0.64);
     border: 1px solid #c8c8c8;
     border-radius: 4px;
@@ -599,11 +655,33 @@
     width: 100%;
     transition: all 0.2s;
     outline: none;
+    @extend %rob-500;
+    font-size: 15px;
+    line-height: 16px;
+    color: #35383b;
     &:hover {
       border: 1px solid #6c6c6c;
     }
     &:focus {
       border: 1px solid #6c6c6c;
+    }
+    &-empty {
+      border-color: #ee505a;
+      &:hover {
+        border: 1px solid #ee505a;
+      }
+      &:focus {
+        border: 1px solid #ee505a;
+      }
+    }
+    &-invalid {
+      border-color: #ee505a;
+      &:hover {
+        border: 1px solid #ee505a;
+      }
+      &:focus {
+        border: 1px solid #ee505a;
+      }
     }
   }
   &__btn {
@@ -616,6 +694,16 @@
     border: none;
     background: #003e73;
     border-radius: 4px;
+    transition: all 0.2s;
+    cursor: pointer;
+    &:hover {
+      background: #007bd5;
+      box-shadow: 0px 3px 16px rgba(69, 133, 255, 0.43);
+    }
+    &:active {
+      background-color: #022c50;
+      box-shadow: 0px 3px 16px transparent;
+    }
   }
 }
 .footer {
@@ -627,6 +715,7 @@
   &__wrapper {
     display: flex;
     justify-content: space-between;
+    grid-gap: 20px;
   }
   &__box {
     display: flex;
@@ -674,6 +763,26 @@
     align-items: center;
     grid-gap: 18px;
   }
+  &__social {
+    filter: drop-shadow(0px 4px 12px transparent);
+    transition: all 0.2s;
+    svg {
+      path {
+        transition: fill 0.2s;
+      }
+    }
+    &:hover {
+      filter: drop-shadow(0px 4px 12px #d6d6d6);
+    }
+    &:active {
+      filter: drop-shadow(0px 4px 12px transparent);
+      svg {
+        path {
+          fill: #0094ff;
+        }
+      }
+    }
+  }
   &__address {
     &-box {
       margin-top: 24px;
@@ -692,6 +801,7 @@
       font-size: 16px;
       line-height: 21px;
       color: #fff;
+      margin-bottom: 8px;
       svg {
         margin-right: 6px;
       }

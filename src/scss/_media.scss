@@ -1,3 +1,11 @@
+@media (max-height: 800px){
+  .top{
+    padding-top: 20px;
+    &__info{
+      margin-top: 55px;
+    }
+  }
+}
 @media (max-width: 1024px) {
   .top {
     &__info {
@@ -111,6 +119,25 @@
     }
   }
 }
+@media (max-width: 900px){
+  .footer{
+    &__wrapper{
+      flex-direction: column;
+      grid-gap: 37px;
+    }
+    &__copy{
+      flex-direction: column;
+      margin-top: 20px;
+      grid-gap: 28px;
+    }
+    &__title{
+      margin-bottom: 16px;
+    }
+    &__box{
+      grid-gap: 0;
+    }
+  }
+}
 @media (max-width: 840px) {
   .clients {
     &__items {
@@ -148,14 +175,19 @@
     &__items {
       grid-template-columns: repeat(3, 1fr);
     }
+    &__item{
+      min-height: 110px;
+    }
   }
 }
 @media (max-width: 640px) {
   .title {
     font-size: 26px;
     line-height: 120%;
-    padding-bottom: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
+    &__line{
+      margin-bottom: 20px;
+    }
   }
   .top {
     padding: 34px 0;
@@ -221,6 +253,10 @@
         font-size: 19px;
         line-height: 22px;
       }
+      &-image{
+        min-height: 40px;
+        height: 40px;
+      }
     }
   }
   .rates {
@@ -267,11 +303,31 @@
       grid-gap: 16px;
     }
   }
+  .news {
+    padding: 50px 0;
+  }
 }
 @media (max-width: 425px) {
   .clients {
     &__items {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .news {
+    &__form {
+      flex-direction: column;
+      grid-gap: 16px;
+    }
+    &__text {
+      font-size: 15px;
+      line-height: 20px;
+      max-width: 287px;
+      width: 100%;
+    }
+    &__btn {
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
     }
   }
 }
